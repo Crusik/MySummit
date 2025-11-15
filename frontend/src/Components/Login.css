@@ -1,0 +1,27 @@
+.login-page {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-page .card {
+  border: none;
+  border-radius: 10px;
+}
+
+.login-page h1 {
+  color: #667eea;
+  font-weight: bold;
+}
+
+.login-page .alert {
+  font-size: 0.85rem;
+}
+
+.login-page .btn-primary {
+  background-color: #667eea;
+  border-color: #667eea;
+}
+
+.login-page .btn-primary:hover {
+  background-color: #764ba2;
+  border-color: #764ba2;
+}

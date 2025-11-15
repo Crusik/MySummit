@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 75 45">
+  <defs>
+    <linearGradient id="linear-gradient" x1="37.5" y1="43.54" x2="37.5" y2="1.46" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#abe1fa"/>
+      <stop offset=".19" stop-color="#c0e8fb"/>
+      <stop offset=".53" stop-color="#e2f4fd"/>
+      <stop offset=".81" stop-color="#f7fcfe"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="32.19" y1="35.94" x2="50.22" y2="14.45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dcf2fd"/>
+      <stop offset="1" stop-color="#9fddf9"/>
+    </linearGradient>
+  </defs>
+  <g id="Logo_-_Web_Nav" data-name="Logo - Web Nav">
+    <path id="Mountains" d="M.53,43.54l20.21-26.49c.18-.23.54-.22.7.02l7.19,10.79L51.06,1.61c.2-.23.56-.19.71.07l22.7,41.85H.53Z" fill="url(#linear-gradient)"/>
+    <path id="Shield_-_Outer" data-name="Shield - Outer" d="M28.34,18.82v1.27c0,9.67,5.16,18.61,13.54,23.45h0s0,0,0,0c8.38-4.84,13.54-13.78,13.54-23.45v-1.27s-13.54-6.55-13.54-6.55l-13.54,6.55Z" fill="url(#linear-gradient-2)"/>
+    <path id="Shield_-_Inner" data-name="Shield - Inner" d="M29.66,19.7v1.15c0,8.73,4.66,16.8,12.22,21.16h0s0,0,0,0c7.56-4.37,12.22-12.43,12.22-21.16v-1.15s-12.22-5.91-12.22-5.91l-12.22,5.91Z" fill="#f8f8f9"/>
+    <path id="Outline" d="M51.76,1.69c-.14-.27-.51-.3-.71-.07l-9.12,10.68-.05-.02-13.54,6.55v1.27c0,2.4.32,4.76.93,7.02l-.64.75-7.19-10.79c-.16-.25-.52-.26-.7-.02L.53,43.54h73.93L51.76,1.69Z" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width=".25"/>
+  </g>
+</svg>

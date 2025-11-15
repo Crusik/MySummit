@@ -1,0 +1,48 @@
+.app-background {
+  background: linear-gradient(135deg, #b8cff5 0%, #9bb8f0 50%, #8b9ef5 100%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+.app-background > .container {
+  background-color: transparent;
+}
+
+.content-container {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  min-height: 75vh;
+}
+
+.nav-pills .nav-item {
+  flex: 1 1 0 !important; /* equal space for all */
+  text-align: center;
+}
+
+.user-profile-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  color: white;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.user-name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}

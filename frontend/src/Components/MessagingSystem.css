@@ -1,0 +1,53 @@
+/* Make the RCE navbar smaller */
+.rce-navbar {
+  min-height: 48px !important; /* smaller overall */
+  padding: 4px 12px !important;
+}
+
+/* Reduce inner padding of the content area */
+.rce-navbar-content {
+  padding: 4px 0 !important;
+  align-items: center !important;
+}
+
+/* Make the avatar and name align nicely */
+.rce-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Adjust title text */
+.rce-navbar-left div {
+  font-size: 16px;
+}
+
+.messaging-wrapper {
+    margin: 0 auto;
+    border-radius: 15px;
+}
+
+.message-list-wrapper {
+    border-radius: 15px 0 0 15px;
+}
+
+/* Shrink the avatar */
+.rce-avatar {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.rce-citem-avatar {
+    padding: 0;
+}
+
+/* Shrink the text and spacing */
+.rce-citem-body--top-title {
+  font-size: 0.75rem !important;
+}
+
+.rce-citem-body--bottom-title {
+  font-size: 0.7rem !important;
+  color: #6c757d !important;
+}
+
