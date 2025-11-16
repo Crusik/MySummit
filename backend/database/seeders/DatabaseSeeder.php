@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             MessageSeeder::class,
             PaymentSeeder::class,
             EventSeeder::class,
+            HealthRecordSeeder::class,
         ]);
     }
 }

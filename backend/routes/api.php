@@ -8,12 +8,13 @@ use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\HealthController;
 
 // Public authentication routes
 Route::post('/login', [AuthController::class, 'login']);
 
 // Protected routes (require Sanctum authentication)
-Route::middleware(['auth:sanctum'])->group(function () {
+Route::middleware(['auth.api:sanctum'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user', [AuthController::class, 'user']);
 
@@ -35,4 +36,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/payments', [PaymentController::class, 'index']);
     Route::get('/payments/{id}', [PaymentController::class, 'show']);
     Route::post('/payments', [PaymentController::class, 'store']);
+
+    Route::get('/health', [HealthController::class, 'index']);
+    Route::get('/health/{id}', [HealthController::class, 'show']);
+    Route::post('/health', [HealthController::class, 'store']);
 });

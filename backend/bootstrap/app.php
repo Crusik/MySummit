@@ -15,6 +15,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->use([
             \Illuminate\Http\Middleware\HandleCors::class,
         ]);
+
+        // Register custom API authentication middleware
+        $middleware->alias([
+            'auth.api' => \App\Http\Middleware\AuthenticateApi::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(function ($request, $e) {
@@ -26,8 +31,10 @@ return Application::configure(basePath: dirname(__DIR__))
 
         $exceptions->render(function (Throwable $e, $request) {
             // For API routes, return JSON error for authentication exceptions
-            if ($request->is('api/*') && $e instanceof \Illuminate\Auth\AuthenticationException) {
-                return response()->json(['error' => 'Unauthenticated.'], 401);
+            if ($request->is('api/*')) {
+                if ($e instanceof \Illuminate\Auth\AuthenticationException) {
+                    return response()->json(['error' => 'Unauthenticated.'], 401);
+                }
             }
         });
     })->create();

@@ -1,0 +1,186 @@
+.Health-Tracking-Section {
+  display: flex;
+  flex-direction: column;
+  padding-right: 10px;
+  margin-left: 7em;
+  margin-right: 7em;
+}
+
+.Health-History-Top {
+  background: #f0f6ff;
+  border-radius: 12px;
+  padding: 1.5em;
+  display: flex;
+  margin-top: 1em;
+  flex: 1;
+}
+
+.Chart-Section {
+  width: 75%;
+}
+
+.Diagnosis-Chart {
+  height: clamp(120px, 25vh, 280px);
+}
+
+.Recent {
+  margin: 0 1.5em;
+  flex: 1;
+}
+
+.Diagnosis-Header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.Diagnosis-Header h4 {
+  flex: 1;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  letter-spacing: 0px;
+  color: #212122;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.Recent-Reading {
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.4rem;
+  letter-spacing: 0px;
+  color: #212122;
+  text-transform: capitalize;
+  margin-bottom: 0.5em;
+}
+
+.Average {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.Average span {
+  text-align: left;
+}
+
+.Diagnosis-Header span {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.Blue-Dot {
+  display: inline-block;
+  background: #667eea;
+  border: 1px solid #ffffff;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+
+.Systolic-Header,
+.Diastolic-Header {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #212122;
+  text-transform: capitalize;
+  margin-bottom: 0.5em;
+}
+
+.Systolic {
+  border-bottom: 1px solid #e0e8f0;
+  padding-bottom: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.Diastolic {
+  margin-bottom: 0;
+}
+
+.Purple-Dot {
+  display: inline-block;
+  background: #764ba2;
+  border: 1px solid #ffffff;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+
+.Health-History-Bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 4em;
+  flex: 1;
+}
+
+.Respiratory-Rate,
+.Temperature,
+.Heart-Rate {
+  flex: 1;
+  border-radius: 12px;
+  padding: 1.5em;
+  background-color: #f0f6ff;
+  text-align: center;
+}
+
+.Card-Headers {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  margin-bottom: 1em;
+  font-weight: 600;
+}
+
+.Health-History-Section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.Icon-Wrapper {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1em;
+}
+
+.Icon {
+  font-size: 40px;
+  color: #667eea;
+}
+
+.Card-Header {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #212122;
+  margin-bottom: 0.5em;
+}
+
+.Card-Reading {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #212122;
+  margin-bottom: 0.5em;
+}
+
+.Card-Status {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.Card-Status div {
+  display: inline;
+}
