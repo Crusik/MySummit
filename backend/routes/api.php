@@ -9,12 +9,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\HealthController;
+use App\Http\Controllers\LabResultController;
 
 // Public authentication routes
 Route::post('/login', [AuthController::class, 'login']);
 
 // Protected routes (require Sanctum authentication)
-Route::middleware(['auth.api:sanctum'])->group(function () {
+Route::middleware(['auth.api:sanctum']) -> group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::get('/user', [AuthController::class, 'user']);
 
@@ -40,4 +41,10 @@ Route::middleware(['auth.api:sanctum'])->group(function () {
     Route::get('/health', [HealthController::class, 'index']);
     Route::get('/health/{id}', [HealthController::class, 'show']);
     Route::post('/health', [HealthController::class, 'store']);
+
+    Route::get('/lab-results', [LabResultController::class, 'index']);
+    Route::get('/lab-results/{labResult}', [LabResultController::class, 'show']);
+    Route::post('/lab-results', [LabResultController::class, 'store']);
+    Route::put('/lab-results/{labResult}', [LabResultController::class, 'update']);
+    Route::delete('/lab-results/{labResult}', [LabResultController::class, 'destroy']);
 });

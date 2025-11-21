@@ -59,16 +59,16 @@ class User extends Authenticatable
 
     public function payments()
     {
-        return $this->hasMany(Payment::class);
+        return $this -> hasMany(Payment::class);
     }
 
     public function events()
     {
-        return $this->hasMany(Event::class);
+        return $this -> hasMany(Event::class);
     }
 
     public function healthRecords()
     {
-        return $this->hasMany(HealthRecord::class);
+        return $this -> hasMany(HealthRecord::class);
     }
 }

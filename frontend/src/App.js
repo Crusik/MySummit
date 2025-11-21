@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { Container, Tabs, Tab, Button } from 'react-bootstrap';
+import { Container, Tabs, Tab } from 'react-bootstrap';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 // Import your section components
 import Nav from './Components/Nav';
@@ -20,6 +21,8 @@ function App() {
       ? JSON.parse(localStorage.getItem('user'))
       : null,
   );
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('health');
 
   useEffect(() => {
     // Check if token exists on mount
@@ -41,48 +44,80 @@ function App() {
     return <Login onLoginSuccess={handleLoginSuccess} />;
   }
 
+  const tabs = [
+    { key: 'health', title: 'Health Tracking', component: HealthTracking },
+    { key: 'labs', title: 'Lab Results', component: LabResults },
+    { key: 'calendar', title: 'Calendar', component: MyCalendar },
+    { key: 'messaging', title: 'Messaging', component: MessagingSystem },
+    { key: 'payments', title: 'Payments', component: Payments },
+  ];
+
+  const CurrentComponent = tabs.find((t) => t.key === activeTab)?.component;
+
   return (
     <div className='app-background min-vh-100'>
       <Nav />
-      <Container className='py-4'>
+
+      {/* Desktop Navigation */}
+      <Container className='py-4 desktop-nav'>
         <Tabs
-          defaultActiveKey='health'
+          activeKey={activeTab}
+          onSelect={(k) => {
+            setActiveTab(k);
+            setMenuOpen(false);
+          }}
           id='mysummit-tabs'
           className='mb-3'
           fill
           variant='pills'
         >
-          <Tab eventKey='health' title='Health Tracking'>
-            <Container className='py-4 content-container'>
-              <HealthTracking token={authToken} />
-            </Container>
-          </Tab>
-
-          <Tab eventKey='labs' title='Lab Results'>
-            <Container className='py-4 content-container'>
-              <LabResults token={authToken} />
-            </Container>
-          </Tab>
-
-          <Tab eventKey='calendar' title='Calendar'>
-            <Container className='py-4 content-container'>
-              <MyCalendar token={authToken} />
-            </Container>
-          </Tab>
-
-          <Tab eventKey='messaging' title='Messaging'>
-            <Container className='py-4 content-container'>
-              <MessagingSystem token={authToken} />
-            </Container>
-          </Tab>
-
-          <Tab eventKey='payments' title='Payments'>
-            <Container className='py-4 content-container'>
-              <Payments token={authToken} />
-            </Container>
-          </Tab>
+          {tabs.map((tab) => (
+            <Tab key={tab.key} eventKey={tab.key} title={tab.title}>
+              <Container className='py-4 content-container'>
+                <tab.component token={authToken} />
+              </Container>
+            </Tab>
+          ))}
         </Tabs>
       </Container>
+
+      {/* Mobile Navigation */}
+      <div className='mobile-nav'>
+        <div className='mobile-nav-header'>
+          <button
+            className='hamburger-btn'
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
+          <h2 className='mobile-tab-title'>
+            {tabs.find((t) => t.key === activeTab)?.title}
+          </h2>
+
+          {menuOpen && (
+            <div className='mobile-menu'>
+              {tabs.map((tab) => (
+                <button
+                  key={tab.key}
+                  className={`mobile-menu-item ${
+                    activeTab === tab.key ? 'active' : ''
+                  }`}
+                  onClick={() => {
+                    setActiveTab(tab.key);
+                    setMenuOpen(false);
+                  }}
+                >
+                  {tab.title}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <Container className='py-4 content-container'>
+          {CurrentComponent && <CurrentComponent token={authToken} />}
+        </Container>
+      </div>
     </div>
   );
 }

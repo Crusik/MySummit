@@ -10,12 +10,12 @@ class EventController extends Controller
 {
     public function index(Request $request)
     {
-        $events = $request->user()
-            ->events()
-            ->orderBy('start_time')
-            ->get();
+        $events = $request -> user()
+             -> events()
+             -> orderBy('start_time')
+             -> get();
 
-        return response()->json($events);
+        return response() -> json($events);
     }
 
     public function store(Request $request)

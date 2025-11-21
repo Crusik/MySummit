@@ -37,7 +37,7 @@ class HealthRecordSeeder extends Seeder
                 $reading = $readings[$index];
                 
                 HealthRecord::create([
-                    'user_id' => $michael->id,
+                    'user_id' => $michael -> id,
                     'month' => $monthData['month'],
                     'year' => $monthData['year'],
                     'systolic' => $reading['systolic'],
@@ -72,7 +72,7 @@ class HealthRecordSeeder extends Seeder
                 $reading = $readings[$index];
                 
                 HealthRecord::create([
-                    'user_id' => $lisa->id,
+                    'user_id' => $lisa -> id,
                     'month' => $monthData['month'],
                     'year' => $monthData['year'],
                     'systolic' => $reading['systolic'],

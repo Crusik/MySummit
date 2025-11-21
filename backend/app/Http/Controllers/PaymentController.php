@@ -10,12 +10,12 @@ class PaymentController extends Controller
 {
     public function index(Request $request)
     {
-        $payments = $request->user()
-            ->payments()
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $payments = $request -> user()
+             -> payments()
+             -> orderBy('created_at', 'desc')
+             -> get();
 
-        return response()->json($payments);
+        return response() -> json($payments);
     }
 
     public function store(Request $request)

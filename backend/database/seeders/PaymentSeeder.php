@@ -16,7 +16,7 @@ class PaymentSeeder extends Seeder
         if ($michael) {
             // Michael's payments
             Payment::create([
-                'user_id' => $michael->id,
+                'user_id' => $michael -> id,
                 'amount' => 50.00,
                 'status' => 'completed',
                 'description' => 'Office visit - Cardiology consultation',

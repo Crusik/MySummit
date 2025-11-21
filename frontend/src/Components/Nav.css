@@ -11,6 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
 }
 
 .nav-title {
@@ -63,6 +64,96 @@
   color: white !important;
   font-weight: 500 !important;
   transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.logout-btn:hover {
+  background-color: #5568d3 !important;
+  border-color: #5568d3 !important;
+  color: white !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .nav-header {
+    padding: 1rem 0;
+  }
+
+  .nav-header-content {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nav-title {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .nav-user-section {
+    width: 100%;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .user-profile-container {
+    padding: 0.75rem 1.25rem;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 150px;
+  }
+
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .user-name {
+    font-size: 0.9rem;
+    display: block;
+  }
+
+  .logout-btn {
+    padding: 0.4rem 0.75rem !important;
+    font-size: 0.85rem !important;
+    flex: 0.5;
+    min-width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-header {
+    padding: 0.75rem 0;
+  }
+
+  .nav-title {
+    font-size: 1rem;
+  }
+
+  .nav-user-section {
+    gap: 1rem;
+  }
+
+  .user-profile-container {
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .user-name {
+    font-size: 0.8rem;
+  }
+
+  .logout-btn {
+    padding: 0.4rem 0.8rem !important;
+    font-size: 0.8rem !important;
+  }
 }
 
 .logout-btn:hover {

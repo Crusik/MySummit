@@ -15,6 +15,7 @@ const MessagingSystem = ({ token }) => {
   const [inputValue, setInputValue] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [mobileTab, setMobileTab] = useState('chat'); // 'list' or 'chat'
   const inputRef = useRef(null);
   const currentUserId = 1; // Get from auth context in production
 
@@ -108,10 +109,7 @@ const MessagingSystem = ({ token }) => {
 
   if (loading) {
     return (
-      <div
-        className='d-flex align-items-center justify-content-center bg-light'
-        style={{ height: '70vh', width: '60vw' }}
-      >
+      <div className='d-flex align-items-center justify-content-center bg-light loading-container'>
         <div>Loading conversations...</div>
       </div>
     );
@@ -119,22 +117,36 @@ const MessagingSystem = ({ token }) => {
 
   if (error) {
     return (
-      <div
-        className='d-flex align-items-center justify-content-center bg-light'
-        style={{ height: '70vh', width: '60vw' }}
-      >
+      <div className='d-flex align-items-center justify-content-center bg-light error-container'>
         <div className='text-danger'>Error: {error}</div>
       </div>
     );
   }
 
   return (
-    <div
-      className='d-flex bg-light messaging-wrapper'
-      style={{ height: '70vh', width: '60vw' }}
-    >
+    <div className='d-flex bg-light messaging-wrapper'>
+      {/* Mobile Tabs */}
+      <div className='mobile-tab-buttons'>
+        <button
+          className={`mobile-tab-btn ${mobileTab === 'list' ? 'active' : ''}`}
+          onClick={() => setMobileTab('list')}
+        >
+          Conversations
+        </button>
+        <button
+          className={`mobile-tab-btn ${mobileTab === 'chat' ? 'active' : ''}`}
+          onClick={() => setMobileTab('chat')}
+        >
+          Chat
+        </button>
+      </div>
+
       {/* Sidebar */}
-      <div className='col-4 bg-white border-end p-3 overflow-auto message-list-wrapper'>
+      <div
+        className={`col-4 bg-white border-end p-3 message-list-wrapper ${
+          mobileTab === 'list' ? 'active' : ''
+        }`}
+      >
         <h5 className='fw-semibold mb-3'>Conversations</h5>
         {conversations.length === 0 ? (
           <div className='text-muted'>No conversations yet</div>
@@ -156,7 +168,10 @@ const MessagingSystem = ({ token }) => {
                 subtitle={truncatedMessage}
                 date={conv.messages[conv.messages.length - 1]?.date}
                 unread={0}
-                onClick={() => setActiveChatId(conv.id)}
+                onClick={() => {
+                  setActiveChatId(conv.id);
+                  setMobileTab('chat');
+                }}
                 className={`cursor-pointer ${
                   activeChatId === conv.id ? 'bg-primary-subtle' : ''
                 }`}
@@ -167,8 +182,12 @@ const MessagingSystem = ({ token }) => {
       </div>
 
       {/* Chat area */}
-      <div className='col d-flex flex-column p-3'>
-        {activeChat && (
+      <div
+        className={`col d-flex flex-column p-3 chat-area ${
+          mobileTab === 'chat' ? 'active' : ''
+        }`}
+      >
+        {activeChat && mobileTab === 'chat' && (
           <>
             <Navbar
               left={
@@ -185,8 +204,11 @@ const MessagingSystem = ({ token }) => {
               }
               right={
                 <div
-                  style={{ color: activeChat.isOnline ? 'green' : 'gray' }}
-                  className='small'
+                  className={`small ${
+                    activeChat.isOnline
+                      ? 'online-indicator'
+                      : 'offline-indicator'
+                  }`}
                 >
                   {activeChat.isOnline ? 'Online' : 'Offline'}
                 </div>
@@ -194,7 +216,7 @@ const MessagingSystem = ({ token }) => {
               type='light'
             />
 
-            <div className='flex-grow-1 overflow-auto p-3 bg-body-tertiary'>
+            <div className='messages-container flex-grow-1 p-3 bg-body-tertiary'>
               <MessageList
                 className='message-list'
                 lockable={true}

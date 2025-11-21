@@ -11,10 +11,10 @@ class ConversationController extends Controller
     public function index(Request $request)
     {
         // Return conversations for the authenticated user
-        $conversations = $request->user()
-            ->conversations()
-            ->with(['users', 'messages.sender'])
-            ->get();
+        $conversations = $request -> user()
+             -> conversations()
+             -> with(['users', 'messages.sender'])
+             -> get();
         return response() -> json($conversations);
     }
 
@@ -35,7 +35,7 @@ class ConversationController extends Controller
         $conversation = Conversation::create();
 
         // attach users to pivot
-        $conversation->users() -> attach($validated['user_ids']);
+        $conversation -> users() -> attach($validated['user_ids']);
 
         return response() -> json($conversation -> load('users'));
     }

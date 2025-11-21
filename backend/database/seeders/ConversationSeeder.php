@@ -10,7 +10,7 @@ class ConversationSeeder extends Seeder
     public function run(): void
     {
         // Delete old conversations
-        Conversation::query()->delete();
+        Conversation::query() -> delete();
 
         // Create conversations with different medical professionals
         Conversation::create([]);

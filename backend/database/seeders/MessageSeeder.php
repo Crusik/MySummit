@@ -14,11 +14,11 @@ class MessageSeeder extends Seeder
         // Delete old messages
         Message::query() -> delete();
 
-        $patient = User::where('email', 'michael@example.com')->first();
-        $drSmith = User::where('email', 'dr.smith@example.com')->first();
-        $nurseTaylor = User::where('email', 'nurse.taylor@example.com')->first();
-        $drJohnson = User::where('email', 'dr.johnson@example.com')->first();
-        $nutritionist = User::where('email', 'lisa.chen@example.com')->first();
+        $patient = User::where('email', 'michael@example.com') -> first();
+        $drSmith = User::where('email', 'dr.smith@example.com') -> first();
+        $nurseTaylor = User::where('email', 'nurse.taylor@example.com') -> first();
+        $drJohnson = User::where('email', 'dr.johnson@example.com') -> first();
+        $nutritionist = User::where('email', 'lisa.chen@example.com') -> first();
 
         $conversations = Conversation::all();
 
@@ -46,6 +46,69 @@ class MessageSeeder extends Seeder
                 'conversation_id' => $conversations[0] -> id,
                 'sender_id' => $drSmith -> id,
                 'text' => 'That\'s great to hear. Your latest lab results look good. Let\'s schedule a follow-up next week.',
+                'is_read' => true,
+            ]);
+
+            Message::create([
+                'conversation_id' => $conversations[0] -> id,
+                'sender_id' => $patient -> id,
+                'text' => 'Sounds good. What time works best for you?',
+                'is_read' => true,
+            ]);
+
+            Message::create([
+                'conversation_id' => $conversations[0] -> id,
+                'sender_id' => $drSmith -> id,
+                'text' => 'How about Tuesday at 10 AM?',
+                'is_read' => true,
+            ]);
+
+            Message::create([
+                'conversation_id' => $conversations[0] -> id,
+                'sender_id' => $patient -> id,
+                'text' => 'Perfect! I\'ll put that on my calendar.',
+                'is_read' => true,
+            ]);
+
+            Message::create([
+                'conversation_id' => $conversations[0] -> id,
+                'sender_id' => $drSmith -> id,
+                'text' => 'Great! Also, I wanted to discuss your blood pressure readings. They\'ve been consistently normal, which is excellent.',
+                'is_read' => true,
+            ]);
+
+            Message::create([
+                'conversation_id' => $conversations[0] -> id,
+                'sender_id' => $patient -> id,
+                'text' => 'That\'s wonderful! I\'ve been trying to maintain a healthy lifestyle.',
+                'is_read' => true,
+            ]);
+
+            Message::create([
+                'conversation_id' => $conversations[0] -> id,
+                'sender_id' => $drSmith -> id,
+                'text' => 'Keep it up! Your commitment to your health is really paying off.',
+                'is_read' => true,
+            ]);
+
+            Message::create([
+                'conversation_id' => $conversations[0] -> id,
+                'sender_id' => $patient -> id,
+                'text' => 'Thank you! I appreciate your guidance and support throughout this journey.',
+                'is_read' => true,
+            ]);
+
+            Message::create([
+                'conversation_id' => $conversations[0] -> id,
+                'sender_id' => $drSmith -> id,
+                'text' => 'You\'re very welcome. That\'s what I\'m here for. See you next Tuesday!',
+                'is_read' => true,
+            ]);
+
+            Message::create([
+                'conversation_id' => $conversations[0] -> id,
+                'sender_id' => $patient -> id,
+                'text' => 'Looking forward to it. Have a great day!',
                 'is_read' => false,
             ]);
         }

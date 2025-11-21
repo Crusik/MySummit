@@ -48,22 +48,27 @@ const CheckoutForm = ({ token }) => {
     setLoading(true);
 
     // Placeholder — will connect to backend/Stripe later
-    alert(`Payment of $${amount} ready to process (backend needed next).`);
     setAmount('');
+    setDescription('');
 
     setLoading(false);
   };
 
   return (
     <Card
-      className='p-4 shadow-sm rounded-4'
-      style={{ maxWidth: '500px', margin: '0 auto' }}
+      className='p-2 shadow-sm rounded-4'
+      style={{ maxWidth: '450px', margin: '0 auto' }}
     >
-      <h3 className='text-center mb-4 text-primary fw-bold'>Make a Payment</h3>
+      <h3
+        className='text-center mb-2 text-primary fw-bold'
+        style={{ fontSize: '1.3rem' }}
+      >
+        Make a Payment
+      </h3>
 
       <Form onSubmit={handlePayment}>
-        <Form.Group className='mb-3' controlId='paymentAmount'>
-          <Form.Label>Enter Amount</Form.Label>
+        <Form.Group className='mb-2' controlId='paymentAmount'>
+          <Form.Label style={{ fontSize: '0.9rem' }}>Enter Amount</Form.Label>
           <Form.Control
             type='number'
             step='0.01'
@@ -71,24 +76,57 @@ const CheckoutForm = ({ token }) => {
             placeholder='Enter amount (USD)'
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+            style={{ fontSize: '0.9rem' }}
           />
         </Form.Group>
 
-        <Form.Group className='mb-3' controlId='paymentDescription'>
-          <Form.Label>Description</Form.Label>
+        <Form.Group className='mb-2' controlId='paymentDescription'>
+          <Form.Label style={{ fontSize: '0.9rem' }}>Description</Form.Label>
           <Form.Control
             type='text'
             placeholder='What is this payment for?'
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            style={{ fontSize: '0.9rem' }}
           />
         </Form.Group>
 
-        <div className='d-grid'>
+        <Form.Group className='mb-2' controlId='cardNumber'>
+          <Form.Label style={{ fontSize: '0.9rem' }}>Card Number</Form.Label>
+          <Form.Control
+            type='text'
+            placeholder='1234 5678 9012 3456'
+            maxLength='19'
+            style={{ fontSize: '0.9rem' }}
+          />
+        </Form.Group>
+
+        <div className='row'>
+          <Form.Group className='col-6 mb-2' controlId='expiryDate'>
+            <Form.Label style={{ fontSize: '0.9rem' }}>Expiry Date</Form.Label>
+            <Form.Control
+              type='text'
+              placeholder='MM/YY'
+              maxLength='5'
+              style={{ fontSize: '0.9rem' }}
+            />
+          </Form.Group>
+          <Form.Group className='col-6 mb-2' controlId='cvv'>
+            <Form.Label style={{ fontSize: '0.9rem' }}>CVV</Form.Label>
+            <Form.Control
+              type='text'
+              placeholder='123'
+              maxLength='3'
+              style={{ fontSize: '0.9rem' }}
+            />
+          </Form.Group>
+        </div>
+
+        <div className='d-grid mb-2'>
           <Button
             type='submit'
             variant='primary'
-            size='lg'
+            size='sm'
             disabled={loading}
             className='rounded-3'
           >
@@ -97,9 +135,14 @@ const CheckoutForm = ({ token }) => {
         </div>
       </Form>
 
-      <hr className='my-4' />
+      <hr className='my-2' />
 
-      <h5 className='text-center text-secondary mb-3'>Past Payments</h5>
+      <h5
+        className='text-center text-secondary mb-2'
+        style={{ fontSize: '1rem' }}
+      >
+        Past Payments
+      </h5>
       {payments.length > 0 ? (
         <div className={payments.length > 3 ? 'payments-list-container' : ''}>
           <ul className='list-group'>

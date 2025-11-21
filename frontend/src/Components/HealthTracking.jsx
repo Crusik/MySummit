@@ -113,12 +113,12 @@ function HealthTracking({ token }) {
 
   if (loading || !healthData || !healthData.diagnosis_history) {
     return (
-      <div className='Health-Tracking-Section'>
+      <div className='health-tracking-section'>
         <h3 className='Card-Headers'>Health Tracking</h3>
-        <div className='Health-History-Section'>
-          <div className='Health-History-Top'>
-            <div className='Chart-Section'>
-              <div className='Diagnosis-Header'>
+        <div className='health-history-section'>
+          <div className='health-history-top'>
+            <div className='chart-section'>
+              <div className='diagnosis-header'>
                 <h4>Blood Pressure</h4>
                 <span>No data available</span>
               </div>
@@ -132,72 +132,72 @@ function HealthTracking({ token }) {
   const latest = healthData.diagnosis_history.slice(-1)[0];
 
   return (
-    <div className='Health-Tracking-Section'>
+    <div className='health-tracking-section'>
       <h3 className='Card-Headers'>Health Tracking</h3>
-      <div className='Health-History-Section'>
-        <div className='Health-History-Top'>
-          <div className='Chart-Section'>
-            <div className='Diagnosis-Header'>
+      <div className='health-history-section'>
+        <div className='health-history-top'>
+          <div className='chart-section'>
+            <div className='diagnosis-header'>
               <h4>Blood Pressure</h4>
               <span>Last 6 months</span>
             </div>
-            <div className='Diagnosis-Chart'>
+            <div className='diagnosis-chart'>
               <canvas ref={chartRef} />
             </div>
           </div>
-          <div className='Recent'>
-            <div className='Systolic'>
-              <div className='Systolic-Header'>
-                <span className='Blue-Dot'></span>
+          <div className='recent'>
+            <div className='systolic'>
+              <div className='systolic-header'>
+                <span className='blue-dot'></span>
                 <span>Systolic</span>
               </div>
-              <span className='Recent-Reading'>
+              <span className='recent-reading'>
                 {latest.blood_pressure.systolic.value}
               </span>
-              <div className='Average'>
+              <div className='average'>
                 <span>{latest.blood_pressure.systolic.levels}</span>
               </div>
             </div>
-            <div className='Diastolic'>
-              <div className='Diastolic-Header'>
-                <span className='Purple-Dot'></span>
+            <div className='diastolic'>
+              <div className='diastolic-header'>
+                <span className='purple-dot'></span>
                 <span>Diastolic</span>
               </div>
-              <span className='Recent-Reading'>
+              <span className='recent-reading'>
                 {latest.blood_pressure.diastolic.value}
               </span>
-              <div className='Average'>
+              <div className='average'>
                 <span>{latest.blood_pressure.diastolic.levels}</span>
               </div>
             </div>
           </div>
         </div>
-        <div className='Health-History-Bottom'>
-          <div className='Respiratory-Rate'>
-            <div className='Icon-Wrapper'>
-              <FaLungs className='Icon' />
+        <div className='health-history-bottom'>
+          <div className='respiratory-rate'>
+            <div className='icon-wrapper'>
+              <FaLungs className='icon' />
             </div>
-            <div className='Card-Header'>Respiratory Rate</div>
-            <div className='Card-Reading'>
+            <div className='card-header'>Respiratory Rate</div>
+            <div className='card-reading'>
               {latest.respiratory_rate.value} bpm
             </div>
-            <div className='Card-Status'>{latest.respiratory_rate.levels}</div>
+            <div className='card-status'>{latest.respiratory_rate.levels}</div>
           </div>
-          <div className='Temperature'>
-            <div className='Icon-Wrapper'>
-              <FaTemperatureHigh className='Icon' />
+          <div className='temperature'>
+            <div className='icon-wrapper'>
+              <FaTemperatureHigh className='icon' />
             </div>
-            <div className='Card-Header'>Temperature</div>
-            <div className='Card-Reading'>{latest.temperature.value}°F</div>
-            <div className='Card-Status'>{latest.temperature.levels}</div>
+            <div className='card-header'>Temperature</div>
+            <div className='card-reading'>{latest.temperature.value}°F</div>
+            <div className='card-status'>{latest.temperature.levels}</div>
           </div>
-          <div className='Heart-Rate'>
-            <div className='Icon-Wrapper'>
-              <FaHeartPulse className='Icon' />
+          <div className='heart-rate'>
+            <div className='icon-wrapper'>
+              <FaHeartPulse className='icon' />
             </div>
-            <div className='Card-Header'>Heart Rate</div>
-            <div className='Card-Reading'>{latest.heart_rate.value} bpm</div>
-            <div className='Card-Status'>
+            <div className='card-header'>Heart Rate</div>
+            <div className='card-reading'>{latest.heart_rate.value} bpm</div>
+            <div className='card-status'>
               <div>{latest.heart_rate.levels}</div>
             </div>
           </div>

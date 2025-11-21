@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             PaymentSeeder::class,
             EventSeeder::class,
             HealthRecordSeeder::class,
+            LabResultSeeder::class,
         ]);
     }
 }
