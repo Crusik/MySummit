@@ -1,9 +1,7 @@
 .health-tracking-section {
   display: flex;
   flex-direction: column;
-  /* padding-right: 10px; */
-  margin-left: 7em;
-  margin-right: 7em;
+  margin: 0 12em;
 }
 
 .health-history-top {
@@ -185,6 +183,12 @@
   display: inline;
 }
 
+@media (max-width: 1200px) {
+  .health-tracking-section {
+    margin: 0 2em;
+  }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .health-tracking-section {
@@ -212,6 +216,14 @@
 
   .recent {
     margin: 1rem 0 0 0;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .systolic {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .health-history-bottom {

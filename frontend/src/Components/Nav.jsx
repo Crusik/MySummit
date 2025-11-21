@@ -29,7 +29,7 @@ function Nav() {
     <>
       <div className='nav-header'>
         <div className='nav-header-content'>
-          <h1 className='nav-title'>MySummit Patient Portal</h1>
+          <h1 className='nav-title'>MySummit Portal</h1>
           <div className='nav-user-section'>
             <div className='user-profile-container'>
               <div className='user-avatar'>{getUserInitials()}</div>

@@ -229,6 +229,12 @@
   font-size: 1.1rem;
 }
 
+@media (max-width: 1200px) {
+  .lab-results-container {
+    padding: 0 2rem;
+  }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .lab-results-title {
